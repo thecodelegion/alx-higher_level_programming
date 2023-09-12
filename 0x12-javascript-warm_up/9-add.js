@@ -1,10 +1,19 @@
 #!/usr/bin/node
-function add (a, b) {
-  const process = require('process');
-  const args = process.argv;
+const process = require('process');
+const args = process.argv;
+
+function add(a, b) {
+  if (args.length < 4) {
+    console.error('Not enough command-line arguments provided.');
+    return NaN;
+  }
+
   a = args[2];
   b = args[3];
+
   const sum = Number(a) + Number(b);
-  console.log(sum);
   return sum;
 }
+
+const result = add();
+console.log(result);
