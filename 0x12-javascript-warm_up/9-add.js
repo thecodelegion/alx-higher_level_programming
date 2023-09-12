@@ -2,7 +2,7 @@
 const process = require('process');
 const args = process.argv;
 
-function add(a, b) {
+function add (a, b) {
   if (args.length < 4) {
     console.error('Not enough command-line arguments provided.');
     return NaN;
