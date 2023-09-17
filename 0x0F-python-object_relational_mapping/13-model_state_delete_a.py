@@ -15,13 +15,13 @@ if __name__ == '__main__':
     port = '3306'
 
     engine = create_engine('mysql+mysqldb://{}:{}@{}:{}/{}'.format(
-                            username, password, host, port, db_name),
-                            pool_pre_ping=True)
+        username, password, host, port, db_name),
+        pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     local_session = Session()
     states = local_session.query(State).filter(
-                           State.name.op('regexp')('.*a+.*')
-                           )
+            State.name.op('regexp')('.*a+.*')
+            )
     for state in states:
         local_session.delete(state)
     local_session.commit()

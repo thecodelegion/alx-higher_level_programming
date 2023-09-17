@@ -20,7 +20,7 @@ def secure_fetch():
                          db=db_name, port=port)
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC;",
-                 [state_name])
+                [state_name])
 
     result = cur.fetchall()
     cur.close()

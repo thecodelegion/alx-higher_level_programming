@@ -12,6 +12,7 @@ def list_with_name():
     ''' displays all values in the states table in hbtn db where name
         matches argument passed to the script
     '''
+
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
@@ -23,7 +24,7 @@ def list_with_name():
                          db=db_name, port=port)
     cur = db.cursor()
     cur.execute(('SELECT * FROM states WHERE BINARY name = \'{}\'\
-                 ORDER BY id ASC;').format(state_name))
+                    ORDER BY id ASC;').format(state_name))
     result = cur.fetchall()
     cur.close()
     db.close()
@@ -31,6 +32,7 @@ def list_with_name():
     if result:
         for row in result:
             print(row)
+
 
 if __name__ == '__main__':
     list_with_name()
